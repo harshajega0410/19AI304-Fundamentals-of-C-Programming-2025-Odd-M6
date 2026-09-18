@@ -33,7 +33,21 @@ To develop a C program using the static storage class in a function with a param
 ### Step 8:
   Stop
 # Program:
+```
+#include <stdio.h>
+int main() {
+    float x, y, area;
+    float *ptrY = &y;
+    scanf("%f", &x);
+    scanf("%f", ptrY);
+    area = x * (*ptrY);
+    printf("Area of rectangle = %.2f\n", area);
+    return 0;
+}
+```
 # Output:
+<img width="853" height="505" alt="image" src="https://github.com/user-attachments/assets/fb352350-8586-4b79-8f93-51e667bf97cb" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -79,7 +93,26 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 11:
   Stop
 # Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main() {
+    char *str;
+    str = (char *)malloc(8 * sizeof(char));
+    if(str == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+    strcpy(str, "WELCOME");
+    printf("%s\n", str);
+    free(str);
+    return 0;
+}
+```
 # Output:
+<img width="907" height="460" alt="image" src="https://github.com/user-attachments/assets/7794dbe3-3a93-4d12-9c41-7e49c1ca282a" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -123,7 +156,27 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+struct Student {
+    char name[50];
+    int roll;
+    float marks;
+};
+int main() {
+    struct Student s;
+    scanf("%[^\n]", s.name);
+    scanf("%d", &s.roll);
+    scanf("%f", &s.marks);
+    printf("%s\n", s.name);
+    printf("%d\n", s.roll);
+    printf("%.2f\n", s.marks);
+    return 0;
+}
+```
 # Output:
+<img width="853" height="517" alt="image" src="https://github.com/user-attachments/assets/ae39bac0-988f-40a6-ab69-1a8d10ab59f5" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -166,7 +219,34 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 9:
   Stop
 # Program:
+```
+#include <stdio.h>
+struct Employee {
+    char name[50];
+    int id;
+    float basic, hra, da, gross;
+};
+int main() {
+    struct Employee emp[3];
+    int i;
+    for(i = 0; i < 3; i++) {
+        scanf("%[^\n]", emp[i].name);
+        scanf("%d", &emp[i].id);
+        scanf("%f %f %f", &emp[i].basic, &emp[i].hra, &emp[i].da);
+        getchar();
+        emp[i].gross = emp[i].basic + emp[i].hra + emp[i].da;
+    }
+    for(i = 0; i < 3; i++) {
+        printf("%s\n", emp[i].name);
+        printf("%d\n", emp[i].id);
+        printf("%.2f\n", emp[i].gross);
+    }
+    return 0;
+}
+```
 # Output:
+<img width="527" height="640" alt="image" src="https://github.com/user-attachments/assets/7c3bbff1-6021-4a38-80e8-a02fe3b1d4bb" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -202,7 +282,39 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+struct Student {
+    char name[10];
+    int rollno;
+    int subject[5];
+    int total;
+    float average;
+};
+int main() {
+    struct Student s[2];
+    int i, j;
+    for(i = 0; i < 2; i++) {
+        for(j = 0; j < 5; j++) {
+            scanf("%d", &s[i].subject[j]);
+        }
+    }
+    for(i = 0; i < 2; i++) {
+        s[i].total = 0;
+        for(j = 0; j < 5; j++) {
+            s[i].total += s[i].subject[j];
+        }
+        s[i].average = s[i].total / 5.0;
+    }
+    for(i = 0; i < 2; i++) {
+        printf("%d %.2f\n", s[i].total, s[i].average);
+    }
+    return 0;
+}
+```
 # Output:
+<img width="817" height="495" alt="image" src="https://github.com/user-attachments/assets/59a03967-9d4c-4ab9-a514-3d14830f32ab" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
